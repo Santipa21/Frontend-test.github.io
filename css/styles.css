@@ -50,18 +50,20 @@
     background-color: var(--right);
 }
 
-.animated{
-    animation: flip 0.5 ease;
+.animated {
+    animation: flip 0.5s ease;
 }
 
-@keyframes flip{
-    0%{
+@keyframes flip {
+    0% {
         transform: scaleY(1);
     }
-    50%{
+
+    50% {
         transform: scaleY(0);
     }
-    100%{
+
+    100% {
         transform: scaleY(1);
     }
 }
