@@ -4768,7 +4768,7 @@ function revealWord(guess) {
         box.style.animationDelay = `${(i * animation_duration) / 2}ms`;
     }
     const isWinner = state.secret === guess;
-    const isGameOver = state.currentRow === 5;
+    const isGameOver = state.currentRow === 4;
 
     setTimeout(() => {
         if (isWinner) {
