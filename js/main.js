@@ -4805,6 +4805,7 @@ function startup() {
     drawGrid(game);
 
     registerKeyboardEvents();
+   
 
 }
 
@@ -4836,3 +4837,12 @@ function countdown(totalMinutes){
 }
 
 countdown(5);
+
+// open modal instructions
+
+document.addEventListener("DOMContentLoaded", function(){
+    const modal = document.getElementById('default-modal');
+    if(modal){
+        modal.classList.remove('hidden');
+    }
+});
