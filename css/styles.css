@@ -11,7 +11,7 @@
     background-color: var(--default);
 }
 
-#board {
+#game {
     display: grid;
     place-items: center;
     width: 100%;
@@ -24,7 +24,7 @@
     grid-template-columns: repeat(5, auto);
 }
 
-.letter {
+.box {
     background-color: var(--initial);
     width: 100px;
     height: 100px;
@@ -38,14 +38,30 @@
     border-radius: 10px;
 }
 
-.letter.empty {
+.box.empty {
     background-color: var(--empty);
 }
 
-.letter.wrong {
+.box.wrong {
     background-color: var(--wrong);
 }
 
-.letter.right {
+.box.right {
     background-color: var(--right);
+}
+
+.animated{
+    animation: flip 0.5 ease;
+}
+
+@keyframes flip{
+    0%{
+        transform: scaleY(1);
+    }
+    50%{
+        transform: scaleY(0);
+    }
+    100%{
+        transform: scaleY(1);
+    }
 }
