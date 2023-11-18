@@ -1,20 +1,112 @@
 :root {
-    --default: #414652;
+    --default: #fff;
+    --dakr: #414652;
     --empty: #939B9F;
     --wrong: #CEB02C;
     --right: #6AAA64;
     --initial: #3b4150;
 }
 
-* {
+body {
     background-color: var(--default);
+    color: var(--dakr);
+    transition: background-color 0.3s ease;
 }
+
+/* The switch - the box around the slider */
+#theme-toggle-button {
+    font-size: 17px;
+    position: relative;
+    display: flex;
+    width: 7em;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  #theme-toggle-button input{
+   display: none;
+  }
+  
+  /* Hide default HTML checkbox */
+  #toggle {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  #container,
+  #patches,
+  #stars,
+  #button,
+  #sun,
+  #moon,
+  #cloud {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.25s;
+  }
+  
+  /* night sky background */
+  #toggle:checked + svg #container {
+    fill: #2b4360;
+  }
+  
+  /* move button to right when checked */
+  #toggle:checked + svg #button {
+    transform: translate(28px, 2.333px);
+  }
+  
+  /* show/hide sun and moon based on checkbox state */
+  #sun {
+    opacity: 1;
+  }
+  
+  #toggle:checked + svg #sun {
+    opacity: 0;
+  }
+  
+  #moon {
+    opacity: 0;
+  }
+  
+  #toggle:checked + svg #moon {
+    opacity: 1;
+  }
+  
+  /* show or hide background items on checkbox state */
+  #cloud {
+    opacity: 1;
+  }
+  
+  #toggle:checked + svg #cloud {
+    opacity: 0;
+  }
+  
+  #stars {
+    opacity: 0;
+  }
+  
+  #toggle:checked + svg #stars {
+    opacity: 1;
+  }
+  
+
+body.dark-theme {
+    background-color: var(--dakr);
+    color: var(--default);
+}
+
+body.light-theme {
+    background-color: var(--default);
+    color: var(--dakr);
+}
+
 
 #game {
     display: grid;
     place-items: center;
     width: 100%;
-    height: 600px;
+    padding-top: 50px;
 }
 
 .grid {
@@ -25,8 +117,8 @@
 
 .box {
     background-color: var(--initial);
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height:150px;
     border: 2px solid var(--empty);
     margin: 4px;
     color: white;
@@ -53,6 +145,12 @@
     animation: flip 0.5s ease;
 }
 
+.darkMode{
+    body {
+        background-color: var(--default);
+    }
+}
+
 @keyframes flip {
     0% {
         transform: scaleY(1);
@@ -67,3 +165,22 @@
     }
 }
 
+ @media only screen and (max-width:430px) {
+
+    .box {
+        width: 3.3rem;
+        height:3.3rem;
+        font-size: 2rem;
+    }
+    
+} 
+
+@media only screen and (max-width:375px) {
+
+    .box {
+        width:3rem;
+        height:3rem;
+        font-size: 2 rem;  
+    }
+    
+}
